@@ -1,0 +1,404 @@
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Input;
+using System.Windows.Media;
+
+namespace Base.Models
+{
+    public class BaseHeader : BaseGrid
+    {
+        private BaseButton btnCadastro = null;
+        private BaseButton btnConsulta = null;
+        private BaseButton btnConfig = null;
+        private BaseContextMenu bcm = null;
+        private BaseMenuItem bmi = null;
+        private ColumnDefinition clnDefinition = null;
+
+        public void addChildren(ref BaseButton btnChildren, int? intX = null, int? intY = null)
+        {
+            try
+            {
+                if (!intX.Equals(null))
+                {
+                    Grid.SetColumn(btnChildren, Convert.ToInt32(intX));
+                }
+                if (!intY.Equals(null))
+                {
+                    Grid.SetRow(btnChildren, Convert.ToInt32(intY));
+                }
+
+                this.Children.Add(btnChildren);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public BaseHeader() : base("BaseHeaderGrid", BaseGrid.Theme.Dark, true)
+        {
+            this.loadLayout();
+            this.loadControls();
+        }
+
+        private void addColumn(double dblWidth)
+        {
+            this.clnDefinition = new ColumnDefinition();
+            this.clnDefinition.Width = new GridLength(dblWidth, GridUnitType.Star);
+            this.ColumnDefinitions.Add(this.clnDefinition);
+        }
+
+        private void loadLayout()
+        {
+            try
+            {
+                this.addColumn(0.24);
+                this.addColumn(1.00);
+                this.addColumn(1.00);
+                this.addColumn(16.52);
+                this.addColumn(1.00);
+                this.addColumn(0.24);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void loadControls()
+        {
+            try
+            {
+                this.loadBtnCadastro();
+                this.loadBtnConsulta();
+                this.loadBtnConfig();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void loadBtnCadastroBCM()
+        {
+            this.bcm = new BaseContextMenu(BaseContextMenu.Theme.Dark, BaseContextMenu.MenuItemFontSize.Medium);
+
+            this.bmi = new BaseMenuItem("bmiCadastroPessoa", "Pessoa");
+            this.bmi.Click += new RoutedEventHandler(this.bmiCadastroPessoa_Click);
+            this.bcm.addItem(this.bmi);
+
+            this.bmi = new BaseMenuItem("bmiCadastroProduto", "Produto");
+            this.bmi.Click += new RoutedEventHandler(this.bmiCadastroProduto_Click);
+            this.bcm.addItem(this.bmi);
+
+            this.bmi = new BaseMenuItem("bmiCadastroCaixa", "Caixa");
+            this.bmi.Click += new RoutedEventHandler(this.bmiCadastroCaixa_Click);
+            this.bcm.addItem(this.bmi);
+
+            this.bmi = new BaseMenuItem("bmiCadastroPrateleira", "Prateleira");
+            this.bmi.Click += new RoutedEventHandler(this.bmiCadastroPrateleira_Click);
+            this.bcm.addItem(this.bmi);
+
+            this.bmi = new BaseMenuItem("bmiCadastroEstante", "Estante");
+            this.bmi.Click += new RoutedEventHandler(this.bmiCadastroEstante_Click);
+            this.bcm.addItem(this.bmi);
+
+            this.bcm.Open(ref this.btnCadastro, PlacementMode.Bottom);
+        }
+
+        private void loadBtnConsultaBCM()
+        {
+            this.bcm = new BaseContextMenu(BaseContextMenu.Theme.Dark, BaseContextMenu.MenuItemFontSize.Medium);
+
+            this.bmi = new BaseMenuItem("bmiConsultaPessoa", "Pessoa");
+            this.bmi.Click += new RoutedEventHandler(this.bmiConsultaPessoa_Click);
+            this.bcm.addItem(this.bmi);
+
+            this.bmi = new BaseMenuItem("bmiConsultaProduto", "Produto");
+            this.bmi.Click += new RoutedEventHandler(this.bmiConsultaProduto_Click);
+            this.bcm.addItem(this.bmi);
+
+            this.bmi = new BaseMenuItem("bmiConsultaCaixa", "Caixa");
+            this.bmi.Click += new RoutedEventHandler(this.bmiConsultaCaixa_Click);
+            this.bcm.addItem(this.bmi);
+
+            this.bmi = new BaseMenuItem("bmiConsultaPrateleira", "Prateleira");
+            this.bmi.Click += new RoutedEventHandler(this.bmiConsultaPrateleira_Click);
+            this.bcm.addItem(this.bmi);
+
+            this.bmi = new BaseMenuItem("bmiConsultaEstante", "Estante");
+            this.bmi.Click += new RoutedEventHandler(this.bmiConsultaEstante_Click);
+            this.bcm.addItem(this.bmi);
+
+            this.bcm.Open(ref this.btnCadastro, PlacementMode.Bottom);
+        }
+
+        private void loadBtnConfigBCM()
+        {
+            this.bcm = new BaseContextMenu(BaseContextMenu.Theme.Dark, BaseContextMenu.MenuItemFontSize.Medium);
+
+            this.bmi = new BaseMenuItem("bmiConfigConexao", "Conexão");
+            this.bmi.Click += new RoutedEventHandler(this.bmiConfigConexao_Click);
+            this.bcm.addItem(this.bmi);
+
+            this.bmi = new BaseMenuItem("bmiConfigSobre", "Sobre");
+            this.bmi.Click += new RoutedEventHandler(this.bmiConfigSobre_Click);
+            this.bcm.addItem(this.bmi);
+
+            this.bcm.Open(ref this.btnCadastro, PlacementMode.Bottom);
+        }
+
+        private void loadBtnCadastro()
+        {
+            try
+            {
+                this.btnCadastro = new BaseButton(
+                    "btnCadastro",
+                    "Cadastro",
+                    Brushes.White,
+                    VerticalAlignment.Center,
+                    HorizontalAlignment.Left,
+                    BaseButton.ButtonFontSize.Medium);
+
+                this.btnCadastro.ContextMenu = this.bcm;
+
+                this.btnCadastro.MouseLeftButtonDown += this.btnCadastro_MouseLeftButtonDown;
+
+                this.addChildren(ref this.btnCadastro, 1, null);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void loadBtnConsulta()
+        {
+            try
+            {
+                this.btnConsulta = new BaseButton(
+                    "btnConsulta",
+                    "Consulta",
+                    Brushes.White,
+                    VerticalAlignment.Center,
+                    HorizontalAlignment.Left,
+                    BaseButton.ButtonFontSize.Medium);
+
+                this.btnConsulta.MouseLeftButtonDown += this.btnConsulta_MouseLeftButtonDown;
+
+                this.addChildren(ref this.btnConsulta, 2, null);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void loadBtnConfig()
+        {
+            try
+            {
+                this.btnConfig = new BaseButton(
+                    "btnConfig",
+                    "Config",
+                    Brushes.White,
+                    VerticalAlignment.Center,
+                    HorizontalAlignment.Right,
+                    BaseButton.ButtonFontSize.Medium);
+
+                this.btnConfig.MouseLeftButtonDown += this.btnConfig_MouseLeftButtonDown;
+
+                this.addChildren(ref this.btnConfig, 4, null);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnCadastro_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                this.btnCadastro.Focus();
+                this.loadBtnCadastroBCM();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnConsulta_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                this.btnConsulta.Focus();
+                this.loadBtnConsultaBCM();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnConfig_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                this.btnConfig.Focus();
+                this.loadBtnConfigBCM();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void bmiCadastroPessoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show("Você clicou em 'Cadastro > Pessoa'.", "Informação", MessageBoxButton.OK);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void bmiCadastroProduto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show("Você clicou em 'Cadastro > Produto'.", "Informação", MessageBoxButton.OK);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void bmiCadastroCaixa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show("Você clicou em 'Cadastro > Caixa'.", "Informação", MessageBoxButton.OK);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void bmiCadastroPrateleira_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show("Você clicou em 'Cadastro > Prateleira'.", "Informação", MessageBoxButton.OK);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void bmiCadastroEstante_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show("Você clicou em 'Cadastro > Estante'.", "Informação", MessageBoxButton.OK);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void bmiConsultaPessoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show("Você clicou em 'Consulta > Pessoa'.", "Informação", MessageBoxButton.OK);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void bmiConsultaProduto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show("Você clicou em 'Consulta > Produto'.", "Informação", MessageBoxButton.OK);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void bmiConsultaCaixa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show("Você clicou em 'Consulta > Caixa'.", "Informação", MessageBoxButton.OK);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void bmiConsultaPrateleira_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show("Você clicou em 'Consulta > Prateleira'.", "Informação", MessageBoxButton.OK);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void bmiConsultaEstante_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show("Você clicou em 'Consulta > Estante'.", "Informação", MessageBoxButton.OK);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void bmiConfigConexao_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show("Você clicou em 'Config > Conexão'.", "Informação", MessageBoxButton.OK);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void bmiConfigSobre_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show("Você clicou em 'Config > Sobre'.", "Informação", MessageBoxButton.OK);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+D:\Caio\WPF\Base\Base\bin\Debug\Base.exe
+D:\Caio\WPF\Base\Base\bin\Debug\Base.pdb
+D:\Caio\WPF\Base\Base\obj\Debug\Base.csprojResolveAssemblyReference.cache
+D:\Caio\WPF\Base\Base\obj\Debug\Base.Properties.Resources.resources
+D:\Caio\WPF\Base\Base\obj\Debug\Base.csproj.GenerateResource.cache
+D:\Caio\WPF\Base\Base\obj\Debug\Base.csproj.CoreCompileInputs.cache
+D:\Caio\WPF\Base\Base\obj\Debug\Base.exe
+D:\Caio\WPF\Base\Base\obj\Debug\Base.pdb
+D:\Caio\WPF\Base\Base\obj\Debug\Base_MarkupCompile.cache
+D:\Caio\WPF\Base\Base\obj\Debug\Base_MarkupCompile.lref
+D:\Caio\WPF\Base\Base\obj\Debug\Base.g.resources
+D:\Caio\WPF\Base\Base\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Caio\WPF\Base\Base\obj\Debug\View\HomeView.g.cs
+D:\Caio\WPF\Base\Base\obj\Debug\View\HomeView.baml
