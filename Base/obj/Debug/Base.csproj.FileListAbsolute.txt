@@ -12,3 +12,17 @@ D:\Caio\WPF\Base\Base\obj\Debug\Base.g.resources
 D:\Caio\WPF\Base\Base\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Caio\WPF\Base\Base\obj\Debug\View\HomeView.g.cs
 D:\Caio\WPF\Base\Base\obj\Debug\View\HomeView.baml
+D:\Caio\GitHub\Base\Base\bin\Debug\Base.exe
+D:\Caio\GitHub\Base\Base\bin\Debug\Base.pdb
+D:\Caio\GitHub\Base\Base\obj\Debug\Base.csprojResolveAssemblyReference.cache
+D:\Caio\GitHub\Base\Base\obj\Debug\View\HomeView.g.cs
+D:\Caio\GitHub\Base\Base\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Caio\GitHub\Base\Base\obj\Debug\Base_MarkupCompile.cache
+D:\Caio\GitHub\Base\Base\obj\Debug\Base_MarkupCompile.lref
+D:\Caio\GitHub\Base\Base\obj\Debug\View\HomeView.baml
+D:\Caio\GitHub\Base\Base\obj\Debug\Base.g.resources
+D:\Caio\GitHub\Base\Base\obj\Debug\Base.Properties.Resources.resources
+D:\Caio\GitHub\Base\Base\obj\Debug\Base.csproj.GenerateResource.cache
+D:\Caio\GitHub\Base\Base\obj\Debug\Base.csproj.CoreCompileInputs.cache
+D:\Caio\GitHub\Base\Base\obj\Debug\Base.exe
+D:\Caio\GitHub\Base\Base\obj\Debug\Base.pdb

@@ -1,102 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Sys.Libs
+namespace Base.Libs
 {
-
     public class ManifestResources
     {
-        private Assembly _assembly = null;
-        private List<string> _lstManifestResources = null;
-        private List<string> _lstManifestResourcesNames = null;
+        private static Assembly _assembly = null;
 
-        private void Initialize()
+        public static Assembly assembly
         {
-            try
+            get
             {
-                // Get assembly
-                this._assembly = Assembly.GetExecutingAssembly();
-
-                // Get manifest resources list
-                this._lstManifestResources = new List<string>();
-                this._lstManifestResources = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceNames().ToList<string>();
-
-                // Set manifest resources names list
-                this._lstManifestResourcesNames = new List<string>();
-                this._lstManifestResourcesNames.Add("Sys.Imagens.bookshelf.png");
-
-                // Manifest resources validation
-                if(!this.Validation())
+                if (_assembly == null)
                 {
-                    throw new ArgumentNullException();
+                    _assembly = Assembly.GetExecutingAssembly();
                 }
-            }
-            catch (Exception ex)
-            {
-                Type type = ex.GetType();
-                switch (type)
-                {
-                    default:
-                        throw ex;
-                }
+
+                return _assembly;
             }
         }
 
-        private bool Validation()
+        static ManifestResources()
         {
-            int intCount = 0;
-            int intResourcesFind = 0;
-            int intResourcesToFind = 0;
+        }
 
+        public static Stream GetManifestResource(string strName)
+        {
             try
             {
-                intResourcesToFind = this._lstManifestResourcesNames.Count;
-
-                foreach (string resourceName in this._lstManifestResourcesNames)
+                string[] strResNames =  assembly.GetManifestResourceNames();
+                foreach (string item in strResNames)
                 {
-                    if (this._lstManifestResources.Contains(resourceName))
+                    if(item.Equals(strName))
                     {
-                        intResourcesFind++;
+
                     }
-
-                    intCount++;
                 }
-
-                if(intResourcesFind.Equals(intResourcesToFind))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                Type type = ex.GetType();
-                switch (type)
-                {
-                    default:
-                        throw ex;
-                }
-            }
-        }
-
-        public ManifestResources()
-        {
-            this.Initialize();
-        }
-
-        public Stream GetManifestResource(string name)
-        {
-            try
-            {
-                return this._assembly.GetManifestResourceStream(name);
+                Stream stm = assembly.GetManifestResourceStream(strName);
+                return stm;
             }
             catch (Exception ex)
             {

@@ -53,13 +53,13 @@ namespace Base.Models
                     break;
 
                 default:
-                    break;
+                    break; 
             }
         }
 
-        public void addItem(string strName, string strHeader)
+        public void addItem(string strName, string strHeader, string strIconResourceName)
         {
-            this.bmi = new BaseMenuItem(strName, strHeader);
+            this.bmi = new BaseMenuItem(strName, strHeader, strIconResourceName);
             this.Items.Add(this.bmi);
         }
 

@@ -85,23 +85,23 @@ namespace Base.Models
         {
             this.bcm = new BaseContextMenu(BaseContextMenu.Theme.Dark, BaseContextMenu.MenuItemFontSize.Medium);
 
-            this.bmi = new BaseMenuItem("bmiCadastroPessoa", "Pessoa");
+            this.bmi = new BaseMenuItem("bmiCadastroPessoa", "Pessoa", "Base.Icons.manager.png");
             this.bmi.Click += new RoutedEventHandler(this.bmiCadastroPessoa_Click);
             this.bcm.addItem(this.bmi);
 
-            this.bmi = new BaseMenuItem("bmiCadastroProduto", "Produto");
+            this.bmi = new BaseMenuItem("bmiCadastroProduto", "Produto", "Base.Icons.cube.png");
             this.bmi.Click += new RoutedEventHandler(this.bmiCadastroProduto_Click);
             this.bcm.addItem(this.bmi);
 
-            this.bmi = new BaseMenuItem("bmiCadastroCaixa", "Caixa");
+            this.bmi = new BaseMenuItem("bmiCadastroCaixa", "Caixa", "Base.Icons.box.png");
             this.bmi.Click += new RoutedEventHandler(this.bmiCadastroCaixa_Click);
             this.bcm.addItem(this.bmi);
 
-            this.bmi = new BaseMenuItem("bmiCadastroPrateleira", "Prateleira");
+            this.bmi = new BaseMenuItem("bmiCadastroPrateleira", "Prateleira", "Base.Icons.rack.png");
             this.bmi.Click += new RoutedEventHandler(this.bmiCadastroPrateleira_Click);
             this.bcm.addItem(this.bmi);
 
-            this.bmi = new BaseMenuItem("bmiCadastroEstante", "Estante");
+            this.bmi = new BaseMenuItem("bmiCadastroEstante", "Estante", "Base.Icons.shelves.png");
             this.bmi.Click += new RoutedEventHandler(this.bmiCadastroEstante_Click);
             this.bcm.addItem(this.bmi);
 
@@ -112,23 +112,23 @@ namespace Base.Models
         {
             this.bcm = new BaseContextMenu(BaseContextMenu.Theme.Dark, BaseContextMenu.MenuItemFontSize.Medium);
 
-            this.bmi = new BaseMenuItem("bmiConsultaPessoa", "Pessoa");
+            this.bmi = new BaseMenuItem("bmiConsultaPessoa", "Pessoa", "Base.Icons.manager.png");
             this.bmi.Click += new RoutedEventHandler(this.bmiConsultaPessoa_Click);
             this.bcm.addItem(this.bmi);
 
-            this.bmi = new BaseMenuItem("bmiConsultaProduto", "Produto");
+            this.bmi = new BaseMenuItem("bmiConsultaProduto", "Produto", "Base.Icons.cube.png");
             this.bmi.Click += new RoutedEventHandler(this.bmiConsultaProduto_Click);
             this.bcm.addItem(this.bmi);
 
-            this.bmi = new BaseMenuItem("bmiConsultaCaixa", "Caixa");
+            this.bmi = new BaseMenuItem("bmiConsultaCaixa", "Caixa", "Base.Icons.box.png");
             this.bmi.Click += new RoutedEventHandler(this.bmiConsultaCaixa_Click);
             this.bcm.addItem(this.bmi);
 
-            this.bmi = new BaseMenuItem("bmiConsultaPrateleira", "Prateleira");
+            this.bmi = new BaseMenuItem("bmiConsultaPrateleira", "Prateleira", "Base.Icons.rack.png");
             this.bmi.Click += new RoutedEventHandler(this.bmiConsultaPrateleira_Click);
             this.bcm.addItem(this.bmi);
 
-            this.bmi = new BaseMenuItem("bmiConsultaEstante", "Estante");
+            this.bmi = new BaseMenuItem("bmiConsultaEstante", "Estante", "Base.Icons.shelves.png");
             this.bmi.Click += new RoutedEventHandler(this.bmiConsultaEstante_Click);
             this.bcm.addItem(this.bmi);
 
@@ -139,15 +139,15 @@ namespace Base.Models
         {
             this.bcm = new BaseContextMenu(BaseContextMenu.Theme.Dark, BaseContextMenu.MenuItemFontSize.Medium);
 
-            this.bmi = new BaseMenuItem("bmiConfigConexao", "Conexão");
+            this.bmi = new BaseMenuItem("bmiConfigConexao", "Conexão", "Base.Icons.database.png");
             this.bmi.Click += new RoutedEventHandler(this.bmiConfigConexao_Click);
             this.bcm.addItem(this.bmi);
 
-            this.bmi = new BaseMenuItem("bmiConfigSobre", "Sobre");
+            this.bmi = new BaseMenuItem("bmiConfigSobre", "Sobre", "Base.Icons.about.png");
             this.bmi.Click += new RoutedEventHandler(this.bmiConfigSobre_Click);
             this.bcm.addItem(this.bmi);
 
-            this.bcm.Open(ref this.btnCadastro, PlacementMode.Bottom);
+            this.bcm.Open(ref this.btnConfig, PlacementMode.Bottom);
         }
 
         private void loadBtnCadastro()

@@ -1,15 +1,15 @@
 ﻿using System;
 using System.IO;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace Sys.Libs
+namespace Base.Libs
 {
     public class ByteImageConverter
     {
         static ByteImageConverter()
         {
-
         }
 
         private static byte[] StreamToByteArray(Stream stream)
@@ -22,7 +22,7 @@ namespace Sys.Libs
             {
                 buffer = new byte[bytesToRead];
                 bytesRead = stream.Read(buffer, 0, bytesToRead);
-                if(bytesRead.Equals(bytesToRead))
+                if (bytesRead.Equals(bytesToRead))
                 {
                     return buffer;
                 }
@@ -44,7 +44,7 @@ namespace Sys.Libs
             }
         }
 
-        public static ImageSource StreamToImage(Stream stream)
+        public static Image StreamToImage(Stream stream)
         {
             try
             {
@@ -54,9 +54,10 @@ namespace Sys.Libs
                 biImg.StreamSource = ms;
                 biImg.EndInit();
 
-                ImageSource imgSrc = biImg as ImageSource;
+                Image img = new Image();
+                img.Source = biImg;
 
-                return imgSrc;
+                return img;
             }
             catch (Exception ex)
             {
