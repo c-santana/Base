@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Base.View;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -124,7 +125,7 @@ namespace Base.Models
             this.bmi.Click += new RoutedEventHandler(this.bmiConsultaEstante_Click);
             this.bcm.addItem(this.bmi);
 
-            this.bcm.Open(ref this.btnCadastro, PlacementMode.Bottom);
+            this.bcm.Open(ref this.btnConsulta, PlacementMode.Bottom);
         }
 
         private void loadBtnConfigBCM()
@@ -189,6 +190,26 @@ namespace Base.Models
             this.addChildren(ref this.btnConfig, 4, null);
         }
 
+        private void bmiCadastroPessoaClick()
+        {
+            BaseLayout objParent = this.Parent as BaseLayout;
+            BaseBody baseBody = null;
+            foreach (object item in objParent.Children)
+            {
+                Type type = item.GetType();
+                if (type.Name.Equals("BaseBody"))
+                {
+                    baseBody = item as BaseBody;
+                    baseBody.Children.Clear();
+
+                    CadastroPessoaView cpv = new CadastroPessoaView();
+                    Grid.SetColumn(cpv, 1);
+                    baseBody.Children.Add(cpv);
+                    break;
+                }
+            }
+        }
+
         // Eventos
 
         private void btnCadastro_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -234,7 +255,7 @@ namespace Base.Models
         {
             try
             {
-                MessageBox.Show("Você clicou em 'Cadastro > Pessoa'.", "Informação", MessageBoxButton.OK);
+                this.bmiCadastroPessoaClick();
             }
             catch (Exception ex)
             {
