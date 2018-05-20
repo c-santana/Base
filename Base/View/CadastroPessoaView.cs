@@ -90,10 +90,13 @@ namespace Base.View
             this.tbxNome = new BaseTextBox(
                 "tbxNome",
                 0.035,
-                0.3,
+                0.33,
+                60,
                 VerticalAlignment.Bottom,
                 HorizontalAlignment.Left,
-                BaseTextBox.ButtonFontSize.Medium);
+                new Thickness(4, 4, 0, 0),
+                BaseTextBox.ButtonFontSize.Medium,
+                BaseTextBox.Theme.Dark);
         }
 
         private void loadLblPessoaId()
