@@ -9,12 +9,24 @@ namespace Base.Models
 {
     public class BaseHeader : BaseGrid
     {
+        // Atributos
+
         private BaseButton btnCadastro = null;
         private BaseButton btnConsulta = null;
         private BaseButton btnConfig = null;
         private BaseContextMenu bcm = null;
         private BaseMenuItem bmi = null;
         private ColumnDefinition clnDefinition = null;
+
+        // Ctor
+
+        public BaseHeader() : base("BaseHeaderGrid", BaseGrid.Theme.Dark, true)
+        {
+            this.loadLayout();
+            this.loadControls();
+        }
+
+        // Métodos
 
         public void addChildren(ref BaseButton btnChildren, int? intX = null, int? intY = null)
         {
@@ -37,12 +49,6 @@ namespace Base.Models
             }
         }
 
-        public BaseHeader() : base("BaseHeaderGrid", BaseGrid.Theme.Dark, true)
-        {
-            this.loadLayout();
-            this.loadControls();
-        }
-
         private void addColumn(double dblWidth)
         {
             this.clnDefinition = new ColumnDefinition();
@@ -52,33 +58,19 @@ namespace Base.Models
 
         private void loadLayout()
         {
-            try
-            {
-                this.addColumn(0.24);
-                this.addColumn(1.00);
-                this.addColumn(1.00);
-                this.addColumn(16.52);
-                this.addColumn(1.00);
-                this.addColumn(0.24);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            this.addColumn(0.24);
+            this.addColumn(1.00);
+            this.addColumn(1.00);
+            this.addColumn(16.52);
+            this.addColumn(1.00);
+            this.addColumn(0.24);
         }
 
         private void loadControls()
         {
-            try
-            {
-                this.loadBtnCadastro();
-                this.loadBtnConsulta();
-                this.loadBtnConfig();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            this.loadBtnCadastro();
+            this.loadBtnConsulta();
+            this.loadBtnConfig();
         }
 
         private void loadBtnCadastroBCM()
@@ -152,9 +144,7 @@ namespace Base.Models
 
         private void loadBtnCadastro()
         {
-            try
-            {
-                this.btnCadastro = new BaseButton(
+            this.btnCadastro = new BaseButton(
                     "btnCadastro",
                     "Cadastro",
                     Brushes.White,
@@ -162,23 +152,16 @@ namespace Base.Models
                     HorizontalAlignment.Left,
                     BaseButton.ButtonFontSize.Medium);
 
-                this.btnCadastro.ContextMenu = this.bcm;
+            this.btnCadastro.ContextMenu = this.bcm;
 
-                this.btnCadastro.MouseLeftButtonDown += this.btnCadastro_MouseLeftButtonDown;
+            this.btnCadastro.MouseLeftButtonDown += this.btnCadastro_MouseLeftButtonDown;
 
-                this.addChildren(ref this.btnCadastro, 1, null);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            this.addChildren(ref this.btnCadastro, 1, null);
         }
 
         private void loadBtnConsulta()
         {
-            try
-            {
-                this.btnConsulta = new BaseButton(
+            this.btnConsulta = new BaseButton(
                     "btnConsulta",
                     "Consulta",
                     Brushes.White,
@@ -186,21 +169,14 @@ namespace Base.Models
                     HorizontalAlignment.Left,
                     BaseButton.ButtonFontSize.Medium);
 
-                this.btnConsulta.MouseLeftButtonDown += this.btnConsulta_MouseLeftButtonDown;
+            this.btnConsulta.MouseLeftButtonDown += this.btnConsulta_MouseLeftButtonDown;
 
-                this.addChildren(ref this.btnConsulta, 2, null);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            this.addChildren(ref this.btnConsulta, 2, null);
         }
 
         private void loadBtnConfig()
         {
-            try
-            {
-                this.btnConfig = new BaseButton(
+            this.btnConfig = new BaseButton(
                     "btnConfig",
                     "Config",
                     Brushes.White,
@@ -208,15 +184,12 @@ namespace Base.Models
                     HorizontalAlignment.Right,
                     BaseButton.ButtonFontSize.Medium);
 
-                this.btnConfig.MouseLeftButtonDown += this.btnConfig_MouseLeftButtonDown;
+            this.btnConfig.MouseLeftButtonDown += this.btnConfig_MouseLeftButtonDown;
 
-                this.addChildren(ref this.btnConfig, 4, null);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            this.addChildren(ref this.btnConfig, 4, null);
         }
+
+        // Eventos
 
         private void btnCadastro_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
