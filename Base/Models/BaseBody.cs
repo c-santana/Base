@@ -19,7 +19,7 @@ namespace Base.Models
             this.loadControls();
         }
 
-        private void addColumn(double dblWidth)
+        public void addColumn(double dblWidth)
         {
             this.clnDefinition = new ColumnDefinition();
             this.clnDefinition.Width = new GridLength(dblWidth, GridUnitType.Star);

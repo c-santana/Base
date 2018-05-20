@@ -9,6 +9,11 @@ namespace Base.View
     /// </summary>
     public partial class HomeView : BaseWindow
     {
+        private BaseLayout baseLayout = null;
+        private BaseHeader baseHeader = null;
+        private BaseBody baseBody = null;
+        private BaseFooter baseFooter = null;
+
         public HomeView() : base("HomeView", WindowState.Maximized, WindowStyle.SingleBorderWindow, BaseWindow.Layouts.Base)
         {
             try

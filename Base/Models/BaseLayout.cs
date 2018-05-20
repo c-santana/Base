@@ -8,7 +8,7 @@ namespace Base.Models
     {
         UIElement uieChildren = null;
 
-        public BaseLayout() : base("BaseLayoutGrid", true)
+        public BaseLayout() : base("BaseLayoutGrid", false)
         {
 
             RowDefinition rowDefinitionHeader = new RowDefinition();
@@ -49,6 +49,33 @@ namespace Base.Models
             {
                 throw ex;
             }
+        }
+
+        public void addChildren(ref BaseBody body, int? intX = null, int? intY = null)
+        {
+            try
+            {
+                if (!intX.Equals(null))
+                {
+                    Grid.SetColumn(body, Convert.ToInt32(intX));
+                }
+                if (!intY.Equals(null))
+                {
+                    Grid.SetRow(body, Convert.ToInt32(intY));
+                }
+
+                this.Children.Add(body);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void changeBody(ref BaseBody body)
+        {
+            this.Children.Remove(this.FindName("BaseBodyGrid") as UIElement);
+            this.addChildren(ref body, null, 1);
         }
     }
 }
