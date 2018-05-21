@@ -62,7 +62,6 @@
     <Compile Include="Models\BaseLabel.cs" />
     <Compile Include="Models\BaseLayout.cs" />
     <Compile Include="Models\BaseMenuItem.cs" />
-    <Compile Include="Models\BasePasswordBox.cs" />
     <Compile Include="Models\BaseTextBox.cs" />
     <Compile Include="Models\BaseWindow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -79,7 +78,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="View\CadastroPessoaView.cs" />
-    <Compile Include="View\CadastroUsuarioView.cs" />
     <Compile Include="View\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
@@ -121,6 +119,14 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icons\shelves.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pgsql\Scripts\CREATE_DATABASE.sql" />
+    <Content Include="Pgsql\Scripts\CREATE_REL_TABLES.sql" />
+    <Content Include="Pgsql\Scripts\CREATE_SEQUENCE.sql" />
+    <Content Include="Pgsql\Scripts\CREATE_TABLES.sql" />
+    <Content Include="Pgsql\Scripts\FUNCTIONS.sql" />
+    <Content Include="Pgsql\Scripts\INSERT.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
