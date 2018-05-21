@@ -40,3 +40,4 @@ D:\Programação\C#\Projects\Repos\Base\Base\obj\Debug\Base.csproj.GenerateResou
 D:\Programação\C#\Projects\Repos\Base\Base\obj\Debug\Base.csproj.CoreCompileInputs.cache
 D:\Programação\C#\Projects\Repos\Base\Base\obj\Debug\Base.exe
 D:\Programação\C#\Projects\Repos\Base\Base\obj\Debug\Base.pdb
+D:\Programação\C#\Projects\Repos\Base\Base\obj\Debug\Base_Content.g.cs
