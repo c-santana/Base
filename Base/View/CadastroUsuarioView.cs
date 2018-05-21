@@ -6,20 +6,21 @@ using System.Windows.Media;
 
 namespace Base.View
 {
-    public class CadastroPessoaView : BaseGrid
+    public class CadastroUsuarioView : BaseGrid
     {
         private ColumnDefinition clnDefinition = null;
         private RowDefinition rowDefinition = null;
         private BaseLabel lblViewName = null;
         private BaseGrid bgdViewLine1 = null;
-        private BaseLabel lblNome = null;
-        private BaseTextBox tbxNome = null;
-        private BaseLabel lblPessoaId = null;
-        private BaseLabel txtPessoaId = null;
+        private BaseLabel lblLogin = null;
+        private BaseTextBox tbxLogin = null;
+        private BaseLabel lblUsuarioId = null;
+        private BaseLabel txtUsuarioId = null;
         private BaseGrid bgdViewLine2 = null;
-        private BaseButton btnSalvar = null;
+        private BaseLabel lblSenha = null;
+        private BaseTextBox tbxSenha = null;
 
-        public CadastroPessoaView() : base("CadastroPessoaViewGrid", Theme.Light, true)
+        public CadastroUsuarioView() : base("CadastroPessoaViewGrid", Theme.Light, true)
         {
             this.loadLayout();
             this.loadControls();
@@ -30,8 +31,7 @@ namespace Base.View
             this.addRow(1);
             this.addRow(2);
             this.addRow(1);
-            this.addRow(1);
-            this.addRow(15);
+            this.addRow(16);
         }
 
         private void loadControls()
@@ -45,7 +45,7 @@ namespace Base.View
         {
             this.lblViewName = new BaseLabel(
                 "lblViewName",
-                "Cadastro de Pessoa",
+                "Cadastro de Usuário",
                 Brushes.White,
                 VerticalAlignment.Center,
                 HorizontalAlignment.Center,
@@ -63,17 +63,17 @@ namespace Base.View
                 new double?[] { 5, 1, 7, 1, 1, 5 },
                 true);
 
-            this.loadLblNome();
-            this.addChildren(ref this.lblNome, ref this.bgdViewLine1, 1, null);
+            this.loadLblLogin();
+            this.addChildren(ref this.lblLogin, ref this.bgdViewLine1, 1, null);
 
-            this.loadTbxNome();
-            this.addChildren(ref this.tbxNome, ref this.bgdViewLine1, 2, null);
+            this.loadTbxLogin();
+            this.addChildren(ref this.tbxLogin, ref this.bgdViewLine1, 2, null);
 
-            this.loadLblPessoaId();
-            this.addChildren(ref this.lblPessoaId, ref this.bgdViewLine1, 3, null);
+            this.loadLblUsuarioId();
+            this.addChildren(ref this.lblUsuarioId, ref this.bgdViewLine1, 3, null);
 
-            this.loadTxtPessoaId();
-            this.addChildren(ref this.txtPessoaId, ref this.bgdViewLine1, 4, null);
+            this.loadTxtUsuarioId();
+            this.addChildren(ref this.txtUsuarioId, ref this.bgdViewLine1, 4, null);
 
             this.addChildren(ref this.bgdViewLine1, null, 1);
         }
@@ -81,22 +81,25 @@ namespace Base.View
         private void loadBgdViewLine2()
         {
             this.bgdViewLine2 = new BaseGrid(
-                "bgdViewLine1",
+                "bgdViewLine2",
                 Theme.Light,
-                new double?[] { 5, 8, 2, 5 },
+                new double?[] { 5, 1, 9, 5 },
                 true);
 
-            this.loadBtnSalvar();
-            this.addChildren(ref this.btnSalvar, ref this.bgdViewLine2, 2, null);
+            this.loadLblSenha();
+            this.addChildren(ref this.lblSenha, ref this.bgdViewLine2, 1, null);
 
-            this.addChildren(ref this.bgdViewLine2, null, 3);
+            this.loadTbxSenha();
+            this.addChildren(ref this.tbxSenha, ref this.bgdViewLine2, 2, null);
+
+            this.addChildren(ref this.bgdViewLine2, null, 2);
         }
 
-        private void loadLblNome()
+        private void loadLblLogin()
         {
-            this.lblNome = new BaseLabel(
-                "lblNome",
-                "Nome:",
+            this.lblLogin = new BaseLabel(
+                "lblLogin",
+                "Login:",
                 Brushes.White,
                 VerticalAlignment.Bottom,
                 HorizontalAlignment.Left,
@@ -104,12 +107,12 @@ namespace Base.View
                 BaseLabel.ButtonFontSize.Medium);
         }
 
-        private void loadTbxNome()
+        private void loadTbxLogin()
         {
-            this.tbxNome = new BaseTextBox(
-                "tbxNome",
+            this.tbxLogin = new BaseTextBox(
+                "tbxLogin",
                 0.035,
-                0.33,
+                0.25,
                 60,
                 VerticalAlignment.Bottom,
                 HorizontalAlignment.Left,
@@ -118,10 +121,10 @@ namespace Base.View
                 BaseTextBox.Theme.Dark);
         }
 
-        private void loadLblPessoaId()
+        private void loadLblUsuarioId()
         {
-            this.lblPessoaId = new BaseLabel(
-                "lblPessoaId",
+            this.lblUsuarioId = new BaseLabel(
+                "lblUsuarioId",
                 "ID:",
                 Brushes.White,
                 VerticalAlignment.Bottom,
@@ -130,10 +133,10 @@ namespace Base.View
                 BaseLabel.ButtonFontSize.Medium);
         }
 
-        private void loadTxtPessoaId()
+        private void loadTxtUsuarioId()
         {
-            this.txtPessoaId = new BaseLabel(
-                "txtPessoaId",
+            this.txtUsuarioId = new BaseLabel(
+                "txtUsuarioId",
                 "000000",
                 Brushes.DarkBlue,
                 VerticalAlignment.Bottom,
@@ -142,39 +145,31 @@ namespace Base.View
                 BaseLabel.ButtonFontSize.Medium);
         }
 
-        private void loadBtnSalvar()
+        private void loadLblSenha()
         {
-            this.btnSalvar = new BaseButton(
-                    "btnSalvar",
-                    "Salvar",
-                    Brushes.White,
-                    VerticalAlignment.Stretch,
-                    HorizontalAlignment.Stretch,
-                    BaseButton.ButtonFontSize.Medium,
-                    HorizontalAlignment.Center);
-
-            this.btnSalvar.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#212121"));
+            this.lblSenha = new BaseLabel(
+                "lblSenha",
+                "Senha:",
+                Brushes.White,
+                VerticalAlignment.Bottom,
+                HorizontalAlignment.Left,
+                false,
+                BaseLabel.ButtonFontSize.Medium);
         }
 
-        public void addChildren(ref BaseButton btnChildren, ref BaseGrid bgdParent, int? intX = null, int? intY = null)
+        private void loadTbxSenha()
         {
-            try
-            {
-                if (!intX.Equals(null))
-                {
-                    Grid.SetColumn(btnChildren, Convert.ToInt32(intX));
-                }
-                if (!intY.Equals(null))
-                {
-                    Grid.SetRow(btnChildren, Convert.ToInt32(intY));
-                }
-
-                bgdParent.Children.Add(btnChildren);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            this.tbxSenha = new BasePasswordBox();
+            this.tbxSenha.loadPasswordBox(
+                "tbxSenha",
+                0.035,
+                0.33,
+                60,
+                VerticalAlignment.Bottom,
+                HorizontalAlignment.Left,
+                new Thickness(4, 4, 0, 0),
+                BasePasswordBox.Theme.Dark,
+                BasePasswordBox.ButtonFontSize.Medium);
         }
 
         public void addChildren(ref BaseTextBox tbxChildren, ref BaseGrid bgdParent, int? intX = null, int? intY = null)
@@ -219,27 +214,6 @@ namespace Base.View
             }
         }
 
-        public void addChildren(ref BaseLabel lblChildren, int? intX = null, int? intY = null)
-        {
-            try
-            {
-                if (!intX.Equals(null))
-                {
-                    Grid.SetColumn(lblChildren, Convert.ToInt32(intX));
-                }
-                if (!intY.Equals(null))
-                {
-                    Grid.SetRow(lblChildren, Convert.ToInt32(intY));
-                }
-
-                this.Children.Add(lblChildren);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         public void addChildren(ref BaseGrid bgdChildren, int? intX = null, int? intY = null)
         {
             try
@@ -254,6 +228,27 @@ namespace Base.View
                 }
 
                 this.Children.Add(bgdChildren);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void addChildren(ref BaseLabel lblChildren, int? intX = null, int? intY = null)
+        {
+            try
+            {
+                if (!intX.Equals(null))
+                {
+                    Grid.SetColumn(lblChildren, Convert.ToInt32(intX));
+                }
+                if (!intY.Equals(null))
+                {
+                    Grid.SetRow(lblChildren, Convert.ToInt32(intY));
+                }
+
+                this.Children.Add(lblChildren);
             }
             catch (Exception ex)
             {

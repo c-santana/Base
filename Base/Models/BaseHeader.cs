@@ -82,20 +82,16 @@ namespace Base.Models
             this.bmi.Click += new RoutedEventHandler(this.bmiCadastroPessoa_Click);
             this.bcm.addItem(this.bmi);
 
-            this.bmi = new BaseMenuItem("bmiCadastroProduto", "Produto", "Base.Icons.cube.png");
-            this.bmi.Click += new RoutedEventHandler(this.bmiCadastroProduto_Click);
+            this.bmi = new BaseMenuItem("bmiCadastroUsuario", "Usuario", "Base.Icons.cube.png");
+            this.bmi.Click += new RoutedEventHandler(this.bmiCadastroUsuario_Click);
             this.bcm.addItem(this.bmi);
 
-            this.bmi = new BaseMenuItem("bmiCadastroCaixa", "Caixa", "Base.Icons.box.png");
-            this.bmi.Click += new RoutedEventHandler(this.bmiCadastroCaixa_Click);
+            this.bmi = new BaseMenuItem("bmiCadastroCliente", "Cliente", "Base.Icons.box.png");
+            this.bmi.Click += new RoutedEventHandler(this.bmiCadastroCliente_Click);
             this.bcm.addItem(this.bmi);
 
-            this.bmi = new BaseMenuItem("bmiCadastroPrateleira", "Prateleira", "Base.Icons.rack.png");
-            this.bmi.Click += new RoutedEventHandler(this.bmiCadastroPrateleira_Click);
-            this.bcm.addItem(this.bmi);
-
-            this.bmi = new BaseMenuItem("bmiCadastroEstante", "Estante", "Base.Icons.shelves.png");
-            this.bmi.Click += new RoutedEventHandler(this.bmiCadastroEstante_Click);
+            this.bmi = new BaseMenuItem("bmiCadastroFornecedor", "Fornecedor", "Base.Icons.rack.png");
+            this.bmi.Click += new RoutedEventHandler(this.bmiCadastroFornecedor_Click);
             this.bcm.addItem(this.bmi);
 
             this.bcm.Open(ref this.btnCadastro, PlacementMode.Bottom);
@@ -210,6 +206,66 @@ namespace Base.Models
             }
         }
 
+        private void bmiCadastroUsuarioClick()
+        {
+            BaseLayout objParent = this.Parent as BaseLayout;
+            BaseBody baseBody = null;
+            foreach (object item in objParent.Children)
+            {
+                Type type = item.GetType();
+                if (type.Name.Equals("BaseBody"))
+                {
+                    baseBody = item as BaseBody;
+                    baseBody.Children.Clear();
+
+                    CadastroUsuarioView cuv = new CadastroUsuarioView();
+                    Grid.SetColumn(cuv, 1);
+                    baseBody.Children.Add(cuv);
+                    break;
+                }
+            }
+        }
+
+        private void bmiCadastroClienteClick()
+        {
+            BaseLayout objParent = this.Parent as BaseLayout;
+            BaseBody baseBody = null;
+            foreach (object item in objParent.Children)
+            {
+                Type type = item.GetType();
+                if (type.Name.Equals("BaseBody"))
+                {
+                    baseBody = item as BaseBody;
+                    baseBody.Children.Clear();
+
+                    CadastroPessoaView cpv = new CadastroPessoaView();
+                    Grid.SetColumn(cpv, 1);
+                    baseBody.Children.Add(cpv);
+                    break;
+                }
+            }
+        }
+
+        private void bmiCadastroFornecedorClick()
+        {
+            BaseLayout objParent = this.Parent as BaseLayout;
+            BaseBody baseBody = null;
+            foreach (object item in objParent.Children)
+            {
+                Type type = item.GetType();
+                if (type.Name.Equals("BaseBody"))
+                {
+                    baseBody = item as BaseBody;
+                    baseBody.Children.Clear();
+
+                    CadastroPessoaView cpv = new CadastroPessoaView();
+                    Grid.SetColumn(cpv, 1);
+                    baseBody.Children.Add(cpv);
+                    break;
+                }
+            }
+        }
+
         // Eventos
 
         private void btnCadastro_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -263,11 +319,11 @@ namespace Base.Models
             }
         }
 
-        private void bmiCadastroProduto_Click(object sender, EventArgs e)
+        private void bmiCadastroUsuario_Click(object sender, EventArgs e)
         {
             try
             {
-                MessageBox.Show("Você clicou em 'Cadastro > Produto'.", "Informação", MessageBoxButton.OK);
+                this.bmiCadastroUsuarioClick();
             }
             catch (Exception ex)
             {
@@ -275,11 +331,11 @@ namespace Base.Models
             }
         }
 
-        private void bmiCadastroCaixa_Click(object sender, EventArgs e)
+        private void bmiCadastroCliente_Click(object sender, EventArgs e)
         {
             try
             {
-                MessageBox.Show("Você clicou em 'Cadastro > Caixa'.", "Informação", MessageBoxButton.OK);
+                MessageBox.Show("Você clicou em 'Cadastro > Cliente'.", "Informação", MessageBoxButton.OK);
             }
             catch (Exception ex)
             {
@@ -287,23 +343,11 @@ namespace Base.Models
             }
         }
 
-        private void bmiCadastroPrateleira_Click(object sender, EventArgs e)
+        private void bmiCadastroFornecedor_Click(object sender, EventArgs e)
         {
             try
             {
-                MessageBox.Show("Você clicou em 'Cadastro > Prateleira'.", "Informação", MessageBoxButton.OK);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        private void bmiCadastroEstante_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                MessageBox.Show("Você clicou em 'Cadastro > Estante'.", "Informação", MessageBoxButton.OK);
+                MessageBox.Show("Você clicou em 'Cadastro > Fornecedor'.", "Informação", MessageBoxButton.OK);
             }
             catch (Exception ex)
             {
