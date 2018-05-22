@@ -16,10 +16,8 @@ namespace Base.View
         private BaseTextBox tbxNome = null;
         private BaseLabel lblPessoaId = null;
         private BaseLabel txtPessoaId = null;
-        private BaseGrid bgdViewLine2 = null;
-        private BaseButton btnSalvar = null;
 
-        public CadastroPessoaView() : base("CadastroPessoaViewGrid", Theme.Light, true)
+        public CadastroPessoaView() : base("CadastroPessoaViewGrid", Theme.Light, false)
         {
             this.loadLayout();
             this.loadControls();
@@ -29,23 +27,20 @@ namespace Base.View
         {
             this.addRow(1);
             this.addRow(2);
-            this.addRow(1);
-            this.addRow(1);
-            this.addRow(15);
+            this.addRow(17);
         }
 
         private void loadControls()
         {
             this.loadLblViewName();
             this.loadBgdViewLine1();
-            this.loadBgdViewLine2();
         }
 
         private void loadLblViewName()
         {
             this.lblViewName = new BaseLabel(
                 "lblViewName",
-                "Cadastro de Pessoa",
+                "Cadastro de Pessoa.",
                 Brushes.White,
                 VerticalAlignment.Center,
                 HorizontalAlignment.Center,
@@ -78,20 +73,6 @@ namespace Base.View
             this.addChildren(ref this.bgdViewLine1, null, 1);
         }
 
-        private void loadBgdViewLine2()
-        {
-            this.bgdViewLine2 = new BaseGrid(
-                "bgdViewLine1",
-                Theme.Light,
-                new double?[] { 5, 8, 2, 5 },
-                true);
-
-            this.loadBtnSalvar();
-            this.addChildren(ref this.btnSalvar, ref this.bgdViewLine2, 2, null);
-
-            this.addChildren(ref this.bgdViewLine2, null, 3);
-        }
-
         private void loadLblNome()
         {
             this.lblNome = new BaseLabel(
@@ -122,7 +103,7 @@ namespace Base.View
         {
             this.lblPessoaId = new BaseLabel(
                 "lblPessoaId",
-                "ID:",
+                "PessoaID:",
                 Brushes.White,
                 VerticalAlignment.Bottom,
                 HorizontalAlignment.Right,
@@ -140,41 +121,6 @@ namespace Base.View
                 HorizontalAlignment.Right,
                 false,
                 BaseLabel.ButtonFontSize.Medium);
-        }
-
-        private void loadBtnSalvar()
-        {
-            this.btnSalvar = new BaseButton(
-                    "btnSalvar",
-                    "Salvar",
-                    Brushes.White,
-                    VerticalAlignment.Stretch,
-                    HorizontalAlignment.Stretch,
-                    BaseButton.ButtonFontSize.Medium,
-                    HorizontalAlignment.Center);
-
-            this.btnSalvar.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#212121"));
-        }
-
-        public void addChildren(ref BaseButton btnChildren, ref BaseGrid bgdParent, int? intX = null, int? intY = null)
-        {
-            try
-            {
-                if (!intX.Equals(null))
-                {
-                    Grid.SetColumn(btnChildren, Convert.ToInt32(intX));
-                }
-                if (!intY.Equals(null))
-                {
-                    Grid.SetRow(btnChildren, Convert.ToInt32(intY));
-                }
-
-                bgdParent.Children.Add(btnChildren);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
         }
 
         public void addChildren(ref BaseTextBox tbxChildren, ref BaseGrid bgdParent, int? intX = null, int? intY = null)

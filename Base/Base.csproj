@@ -62,7 +62,6 @@
     <Compile Include="Models\BaseLabel.cs" />
     <Compile Include="Models\BaseLayout.cs" />
     <Compile Include="Models\BaseMenuItem.cs" />
-    <Compile Include="Models\BasePasswordBox.cs" />
     <Compile Include="Models\BaseTextBox.cs" />
     <Compile Include="Models\BaseWindow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -79,7 +78,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="View\CadastroPessoaView.cs" />
-    <Compile Include="View\CadastroUsuarioView.cs" />
     <Compile Include="View\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
@@ -121,6 +119,17 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icons\shelves.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pgsql\Scripts\database\base.sql" />
+    <Content Include="Pgsql\Scripts\functions\fnc_pessoa_salvar.sql" />
+    <Content Include="Pgsql\Scripts\functions\fnc_usuario_salvar.sql" />
+    <Content Include="Pgsql\Scripts\roles\rol_base.sql" />
+    <Content Include="Pgsql\Scripts\sequences\seq_pessoa_id.sql" />
+    <Content Include="Pgsql\Scripts\sequences\seq_usuario_id.sql" />
+    <Content Include="Pgsql\Scripts\tables\tbl_pessoa.sql" />
+    <Content Include="Pgsql\Scripts\tables\tbl_usuario.sql" />
+    <Content Include="Pgsql\Scripts\views\viw_usuario.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
