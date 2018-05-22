@@ -8,11 +8,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pgsql/scripts/create_database.sql")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pgsql/scripts/create_rel_tables.sql")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pgsql/scripts/create_sequence.sql")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pgsql/scripts/create_tables.sql")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pgsql/scripts/functions.sql")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pgsql/scripts/insert.sql")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pgsql/scripts/database/base.sql")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pgsql/scripts/functions/fnc_pessoa_salvar.sql")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pgsql/scripts/functions/fnc_usuario_salvar.sql")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pgsql/scripts/roles/rol_base.sql")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pgsql/scripts/sequences/seq_pessoa_id.sql")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pgsql/scripts/sequences/seq_usuario_id.sql")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pgsql/scripts/tables/tbl_pessoa.sql")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pgsql/scripts/tables/tbl_usuario.sql")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pgsql/scripts/views/viw_usuario.sql")]
 
 

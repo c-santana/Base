@@ -28,7 +28,6 @@ D:\Caio\GitHub\Base\Base\obj\Debug\Base.exe
 D:\Caio\GitHub\Base\Base\obj\Debug\Base.pdb
 D:\Programação\C#\Projects\Repos\Base\Base\bin\Debug\Base.exe
 D:\Programação\C#\Projects\Repos\Base\Base\bin\Debug\Base.pdb
-D:\Programação\C#\Projects\Repos\Base\Base\obj\Debug\Base.csprojAssemblyReference.cache
 D:\Programação\C#\Projects\Repos\Base\Base\obj\Debug\View\HomeView.g.cs
 D:\Programação\C#\Projects\Repos\Base\Base\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Programação\C#\Projects\Repos\Base\Base\obj\Debug\Base_MarkupCompile.cache
@@ -40,4 +39,3 @@ D:\Programação\C#\Projects\Repos\Base\Base\obj\Debug\Base.csproj.GenerateResou
 D:\Programação\C#\Projects\Repos\Base\Base\obj\Debug\Base.csproj.CoreCompileInputs.cache
 D:\Programação\C#\Projects\Repos\Base\Base\obj\Debug\Base.exe
 D:\Programação\C#\Projects\Repos\Base\Base\obj\Debug\Base.pdb
-D:\Programação\C#\Projects\Repos\Base\Base\obj\Debug\Base_Content.g.cs

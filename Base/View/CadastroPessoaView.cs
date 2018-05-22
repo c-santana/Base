@@ -17,7 +17,7 @@ namespace Base.View
         private BaseLabel lblPessoaId = null;
         private BaseLabel txtPessoaId = null;
 
-        public CadastroPessoaView() : base("CadastroPessoaViewGrid", Theme.Light, true)
+        public CadastroPessoaView() : base("CadastroPessoaViewGrid", Theme.Light, false)
         {
             this.loadLayout();
             this.loadControls();

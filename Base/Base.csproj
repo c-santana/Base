@@ -121,12 +121,15 @@
     <EmbeddedResource Include="Icons\shelves.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Pgsql\Scripts\CREATE_DATABASE.sql" />
-    <Content Include="Pgsql\Scripts\CREATE_REL_TABLES.sql" />
-    <Content Include="Pgsql\Scripts\CREATE_SEQUENCE.sql" />
-    <Content Include="Pgsql\Scripts\CREATE_TABLES.sql" />
-    <Content Include="Pgsql\Scripts\FUNCTIONS.sql" />
-    <Content Include="Pgsql\Scripts\INSERT.sql" />
+    <Content Include="Pgsql\Scripts\database\base.sql" />
+    <Content Include="Pgsql\Scripts\functions\fnc_pessoa_salvar.sql" />
+    <Content Include="Pgsql\Scripts\functions\fnc_usuario_salvar.sql" />
+    <Content Include="Pgsql\Scripts\roles\rol_base.sql" />
+    <Content Include="Pgsql\Scripts\sequences\seq_pessoa_id.sql" />
+    <Content Include="Pgsql\Scripts\sequences\seq_usuario_id.sql" />
+    <Content Include="Pgsql\Scripts\tables\tbl_pessoa.sql" />
+    <Content Include="Pgsql\Scripts\tables\tbl_usuario.sql" />
+    <Content Include="Pgsql\Scripts\views\viw_usuario.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
