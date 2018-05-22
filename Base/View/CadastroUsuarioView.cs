@@ -18,7 +18,6 @@ namespace Base.View
         private BaseLabel txtUsuarioId = null;
         private BaseGrid bgdViewLine2 = null;
         private BaseLabel lblSenha = null;
-        private BaseTextBox tbxSenha = null;
 
         public CadastroUsuarioView() : base("CadastroPessoaViewGrid", Theme.Light, true)
         {
@@ -89,9 +88,6 @@ namespace Base.View
             this.loadLblSenha();
             this.addChildren(ref this.lblSenha, ref this.bgdViewLine2, 1, null);
 
-            this.loadTbxSenha();
-            this.addChildren(ref this.tbxSenha, ref this.bgdViewLine2, 2, null);
-
             this.addChildren(ref this.bgdViewLine2, null, 2);
         }
 
@@ -157,20 +153,6 @@ namespace Base.View
                 BaseLabel.ButtonFontSize.Medium);
         }
 
-        private void loadTbxSenha()
-        {
-            this.tbxSenha = new BasePasswordBox();
-            this.tbxSenha.loadPasswordBox(
-                "tbxSenha",
-                0.035,
-                0.33,
-                60,
-                VerticalAlignment.Bottom,
-                HorizontalAlignment.Left,
-                new Thickness(4, 4, 0, 0),
-                BasePasswordBox.Theme.Dark,
-                BasePasswordBox.ButtonFontSize.Medium);
-        }
 
         public void addChildren(ref BaseTextBox tbxChildren, ref BaseGrid bgdParent, int? intX = null, int? intY = null)
         {
